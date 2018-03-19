@@ -1,13 +1,13 @@
 {
   "title": "Big Data and Visualization",
   "tagline": "Azure Workshops",
-  "lead": "Analyze weather data using Azure Machine Learning, summarize it in Azure SQL Data Warehouse, and visualize it using Power BI.",
-  "description": "In this workshop, attendees will build an end-to-end solution to predict flight delays taking into account the weather forecast using Power BI, Azure SQL Data Warehouse, an Azure Machine Learning.",
+  "lead": "Analyze weather data using Azure Machine Learning, build a data pipeline using Azure Data Factory, summarize it in HDInsight Spark, and visualize it using Power BI.",
+  "description": "In this workshop, attendees will build an end-to-end solution to predict flight delays taking into account the weather forecast using Power BI, Azure HDInsight Spark, an Azure Machine Learning.",
   "learn": [
-    "Azure Data Platform",
-    "Azure SQL Data Warehouse",
+    "Azure Data Factory",
+    "Azure HDInsight Spark",
     "Azure Machine Learning",
-    "Power BI",
+    "Power BI Desktop",
     "Advanced Analytics"
   ],
   "audience": [
@@ -17,7 +17,7 @@
     "Data Architects and DBAs",
     "Data Analysts and Data Scientists"
   ],
-  "author": "Jim Rosengarth",
+  "author": "Marty Pittman",
   "timezone": "America/New_York",
   "format": "html",
   "processor": "Processor",
@@ -36,7 +36,7 @@
       {
         "name": "PowerPoint",
         "icon": "fa-file-powerpoint-o",
-        "url": "https://github.com/AzureWorkshops/Big-Data-Visualization/raw/master/AZW_Big_Data_and_Visualization.pptx"
+        "url": "https://github.com/AzureWorkshops/Big-Data-Visualization-New/raw/master/AZW_Big_Data_and_Visualization_Whiteboard_Design_Session.pptx"
       }
     ]
   }
