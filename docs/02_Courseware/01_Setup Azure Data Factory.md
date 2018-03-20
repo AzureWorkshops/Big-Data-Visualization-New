@@ -2,7 +2,7 @@
 
 **Duration:** 20 mins
 
-**Synopsis:** In this exercise, attendees will create a baseline environment for Azure Data Factory development for further operationalization of data movement and processing. You will create a Data Factory service, and then install the Data Management Gateway which is the agent that facilitates data movement from on-premises to Microsoft Azure.
+**Synopsis:** In this exercise, attendees will create a baseline environment for Azure Data Factory development for further operationalization of data movement and processing. You will create a Data Factory service, and then install the Integration Runtime which is the agent that facilitates data movement from on-premises to Microsoft Azure.
 
 ### **Task 1:** Connect to the Lab VM
 
