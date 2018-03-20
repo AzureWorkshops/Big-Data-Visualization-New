@@ -76,7 +76,7 @@
 1.	Launch a new browser window, and navigate to the Azure portal (https://portal.azure.com). Once prompted, log in with your Microsoft Azure credentials. If prompted, choose whether your account is an organization account or a Microsoft account. This will be based on which account was used to provision your Azure subscription that is being used for this lab.
     *	**Note:** You may need to launch an InPrivate/Incognito session in your browser if you have multiple Microsoft accounts.
 
-2.	From the top left corner of the Azure portal, select **+ New**, and select **Data + Analytics**, then select **Data Factory**. 
+2.	From the top left corner of the Azure portal, select **+ Create a resource**, and select **Data + Analytics**, then select **Data Factory**. 
 
 <img src="../images/adf_select_new_data_factory.jpg" class="block"/>
 
