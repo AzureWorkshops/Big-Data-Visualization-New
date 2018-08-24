@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Develop a data factory pipeline for data movement - Big Data and Visualization</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Marty Pittman">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Big Data and Visualization</a> / <a href="../Courseware/Build_a_ML_Model.html">Courseware</a> / <a href="../Courseware/Develop_a_data_factory_pipeline_for_data_movement.html">Develop a data factory pipeline for data movement</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Azure_Registration.html">Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Build_a_ML_Model.html">Build a ML Model</a></li><li class='Nav__item '><a href="../Courseware/Setup Azure Data Factory.html">Setup Azure Data Factory</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/Develop_a_data_factory_pipeline_for_data_movement.html">Develop a data factory pipeline for data movement</a></li><li class='Nav__item '><a href="../Courseware/Operationalize_ML_Scoring_with_Azure_ML_and_Data_Factory.html">Operationalize ML Scoring with Azure ML and Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Summarize_data_using_HDInsight_Spark.html">Summarize data using HDInsight Spark</a></li><li class='Nav__item '><a href="../Courseware/Visualizing_in_PowerBI_Desktop.html">Visualizing in PowerBI Desktop</a></li><li class='Nav__item '><a href="../Courseware/Deploy_Intelligent_Web_App.html">Deploy Intelligent Web App</a></li><li class='Nav__item '><a href="../Courseware/Cleanup.html">Cleanup</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Big Data and Visualization.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Develop a data factory pipeline for data movement</h1>
+                    <div class="date"> Friday, August 24, 2018 11:57 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Exercise-3-Develop-a-data-factory-pipeline-for-data-movement"><strong>Exercise 3:</strong> Develop a data factory pipeline for data movement</h2>
+<p><strong>Duration:</strong> 20 mins</p>
+<p><strong>Synopsis:</strong> In this exercise, you will create an Azure Data Factory pipeline to copy data (.CSV file) from an on-premises server (Lab VM) to Azure Blob Storage. The goal of the exercise is to demonstrate data movement from an on-premises location to Azure Storage (via the Integration Runtime). You will see how assets are created, deployed, executed, and monitored.</p>
+<h3 id="page_Task-1-Create-copy-pipeline-using-the-Copy-Data-Wizard"><strong>Task 1:</strong> Create copy pipeline using the Copy Data Wizard</h3>
+<ol>
+<li>On your Azure Data Factory blade in the Azure portal, select <strong>Copy Data (PREVIEW)</strong>, under Actions.</li>
+</ol>
+<img src="../images/adf_select_copy_data.jpg" class="block"/>
+<ol start="2">
+<li>
+<p>This will launch a new browser window. Log in with the same credentials you used to create the Data Factory.</p>
+</li>
+<li>
+<p>In the new browser window, enter the following:</p>
+<ul>
+<li>Task name: Enter “CopyOnPrem2AzurePipeline”</li>
+<li>Task description: (Optional) Enter a description, such as “This pipeline copies timesliced CSV files from on-premises virtual machine C:\FlightsAndWeather to Azure Blob Storage as a continuous job.”</li>
+<li>Task cadence (or) Task schedule: Select Run regularly on schedule.</li>
+<li>Recurring pattern: Select Monthly, and every 1 month.</li>
+<li>Start date time (UTC): Set to 03/01/2017 12:00 am</li>
+<li>End date time (UTC): Set to 12/31/2099 11:59 pm</li>
+<li>Select <strong>Next</strong>
+</li>
+</ul>
+<img src="../images/adf_copy_data_properties.jpg" class="block"/>
+</li>
+<li>
+<p>On the Source screen, select <strong>File System</strong>, then select <strong>Next</strong>.</p>
+<img src="../images/adf_copy_select_source.jpg" class="block"/>
+</li>
+<li>
+<p>From the Specify File server share connection screen, enter the following:</p>
+<ul>
+<li>Connection name: <strong>OnPremServer</strong>
+</li>
+<li>Integration Runtime/Gateway: Select the Integration runtime created previously in this exercise (this value should already be populated)</li>
+<li>Path: Enter <strong>C:\Data</strong>
+</li>
+<li>Credential encryption: Select <strong>By web browser</strong>
+</li>
+<li>User name: Enter <strong>demouser</strong>
+</li>
+<li>Password: Enter <strong>Password.1!!</strong>
+</li>
+<li>Select <strong>Next</strong>
+</li>
+</ul>
+<img src="../images/adf_copy_configure_source.jpg" class="block"/>
+</li>
+<li>
+<p>On the Choose the input file or folder screen, select the folder <strong>FlightsAndWeather</strong>, and select Choose.</p>
+<img src="../images/adf_copy_choose_input_folder.jpg" class="block"/>
+</li>
+<li>
+<p>On the next screen, check the <strong>Copy files recursively</strong> check box, and select <strong>Next</strong>.</p>
+<img src="../images/adf_copy_select_files_recursively.jpg" class="block"/>
+</li>
+<li>
+<p>On the File format settings page, leave the default settings, and select <strong>Next</strong>.</p>
+</li>
+</ol>
+<img src="../images/adf_copy_source_file_format.jpg" class="block"/> 
+<ol start="9">
+<li>On the Destination screen, select <strong>Azure Blob Storage</strong>, and select <strong>Next</strong>.</li>
+</ol>
+<img src="../images/adf_copy_select_destination_store.jpg" class="block"/>
+<ol start="10">
+<li>On the Specify the Azure Blob storage account screen, enter the following:
+<ul>
+<li>Connection name: BlobStorageOutput</li>
+<li>Account selection method: Leave as From Azure subscriptions</li>
+<li>Azure Subscription: Select your subscription</li>
+<li>Storage account name: Select &lt;YOUR_APP_NAME&gt;sparkstorage. Make sure you select the storage account with the <strong>sparkstorage</strong> suffix, or you will have issues with subsequent exercises. This ensures data will be copied to the storage account that the Spark cluster users for its data files.</li>
+</ul>
+</li>
+</ol>
+<img src="../images/adf_configure_sink_blob_store_account.jpg" class="block"/>
+<ol start="11">
+<li>
+<p>Before selecting Next, please ensure you have selected the proper <strong>sparkstorage</strong> account. Finally, select <strong>Next</strong>.</p>
+</li>
+<li>
+<p>From the Choose the output file or folder tab, enter the following:</p>
+<ul>
+<li>Folder path: Enter <strong>sparkcontainer/FlightsAndWeather/{Year}/{Month}/</strong>
+</li>
+<li>Filename: Enter <strong>FlightsAndWeather.csv</strong>
+</li>
+<li>Year: Select <strong>yyyy</strong> from the drop down</li>
+<li>Month: Leave as <strong>MM</strong>
+</li>
+<li>Select <strong>Next</strong>.</li>
+</ul>
+</li>
+</ol>
+<img src="../images/adf_copy_configure_sink_output_folder.jpg" class="block"/>
+<ol start="13">
+<li>On the File format settings screen, check the <strong>Add header to file</strong> checkbox, then select <strong>Next</strong>.</li>
+</ol>
+<img src="../images/adf_copy_sink_add_header.jpg" class="block"/>
+<ol start="13">
+<li>On the Settings screen, select <strong>Skip all incompatible rows</strong> under Actions, then select <strong>Next</strong>.</li>
+</ol>
+<img src="../images/adf_copy_sink_configure_settings.jpg" class="block"/>
+<ol start="14">
+<li>Review settings on the Summary tab.</li>
+</ol>
+<img src="../images/adf_copy_sink_review_settings_summary.jpg" class="block"/>
+<ol start="15">
+<li>Scroll down on the summary page until you see the <strong>Copy Settings</strong> section. Select <strong>Edit</strong> next to Copy Settings.</li>
+</ol>
+<img src="../images/adf_copy_settings.jpg" class="block"/>
+<ol start="16">
+<li>Change the following Copy settings
+<ul>
+<li>Concurrency: Set to <strong>10</strong>
+</li>
+<li>Execution priority order: Change to <strong>OldestFirst</strong>
+</li>
+<li>Select <strong>Save</strong>
+</li>
+</ul>
+</li>
+</ol>
+<img src="../images/adf_copy_edit_copy_settings.jpg" class="block"/>
+<ol start="17">
+<li>
+<p>After saving the Copy settings, select <strong>Next</strong> on the Summary tab.</p>
+</li>
+<li>
+<p>On the Deployment screen you will see a message that the deployment in is progress, and after a minute or two that the deployment completed.</p>
+</li>
+</ol>
+<img src="../images/adf_copy_deployment_complete.jpg" class="block"/>
+<ol start="19">
+<li>
+<p>Select the <strong>Click here to monitor copy pipeline</strong> link at the bottom of the <strong>Deployment</strong> screen.</p>
+</li>
+<li>
+<p>From the Data Factory Resource Explorer, you should see the pipeline activity status <strong>Ready</strong>. This indicates the CSV files are successfully copied from your VM to your Azure Blob Storage location.</p>
+</li>
+</ol>
+<img src="../images/adf_copy_pipeline_activity_ready.jpg" class="block"/>
+<ol start="4">
+<li>You may need to adjust the Start time in the window, as follows, and then select <strong>Apply</strong>.</li>
+</ol>
+<img src="../images/adf_copy_adjust_start_time.jpg" class="block"/>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Setup Azure Data Factory.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Operationalize_ML_Scoring_with_Azure_ML_and_Data_Factory.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

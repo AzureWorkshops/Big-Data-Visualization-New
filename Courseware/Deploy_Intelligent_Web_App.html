@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Deploy Intelligent Web App - Big Data and Visualization</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Marty Pittman">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Big Data and Visualization</a> / <a href="../Courseware/Build_a_ML_Model.html">Courseware</a> / <a href="../Courseware/Deploy_Intelligent_Web_App.html">Deploy Intelligent Web App</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Azure_Registration.html">Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Build_a_ML_Model.html">Build a ML Model</a></li><li class='Nav__item '><a href="../Courseware/Setup Azure Data Factory.html">Setup Azure Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Develop_a_data_factory_pipeline_for_data_movement.html">Develop a data factory pipeline for data movement</a></li><li class='Nav__item '><a href="../Courseware/Operationalize_ML_Scoring_with_Azure_ML_and_Data_Factory.html">Operationalize ML Scoring with Azure ML and Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Summarize_data_using_HDInsight_Spark.html">Summarize data using HDInsight Spark</a></li><li class='Nav__item '><a href="../Courseware/Visualizing_in_PowerBI_Desktop.html">Visualizing in PowerBI Desktop</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/Deploy_Intelligent_Web_App.html">Deploy Intelligent Web App</a></li><li class='Nav__item '><a href="../Courseware/Cleanup.html">Cleanup</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Big Data and Visualization.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Deploy Intelligent Web App</h1>
+                    <div class="date"> Friday, August 24, 2018 11:57 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Exercise-7-Deploy-Intelligent-Web-App"><strong>Exercise 7:</strong> Deploy Intelligent Web App</h2>
+<p><strong>Duration:</strong> 20 mins</p>
+<p><strong>Synopsis:</strong> In this exercise, you will deploy an intelligent web application to Azure from GitHub. This application leverages the operationalized machine learning model that was deployed in Exercise 1 to bring action-oriented insight to an already existing business process.</p>
+<h3 id="page_Task-1-Deploy-web-app-from-GitHub"><strong>Task 1:</strong> Deploy web app from GitHub</h3>
+<ol>
+<li>
+<p>Navigate to https://github.com/ZoinerTejada/mcw-big-data-and-visualization/blob/master/AdventureWorksTravel/README.md in your browser of choice, but where you are already authenticated to the Azure portal.</p>
+</li>
+<li>
+<p>Read through the README information on the GitHub page and capture the required parameters.</p>
+</li>
+<li>
+<p>Click the <strong>Deploy to Azure</strong> button.</p>
+<img src="../images/web_app_deploy_to_azure.jpg" class="block"/>
+</li>
+<li>
+<p>On the following page, ensure the fields are populated correctly.</p>
+<ul>
+<li>Ensure the correct Directory and Subscription are selected.</li>
+<li>Select the Resource Group that you have been using throughout this lab.</li>
+<li>Either keep the default Site name, or provide one that is globally unique, and then choose a Site Location.</li>
+<li>Finally, enter the ML API and Weather API information.
+<ul>
+<li>Recall that you recorded the ML API information back in Exercise 1, Task 9.
+<ol>
+<li>This information can be obtained on your Machine Learning web service page (https://services.azureml.net, then go to the <strong>Consume</strong> tab.</li>
+<li>The Primary Key listed is your ML API key</li>
+<li>In the Request-Response URL, the <strong>GUID after subscriptions/</strong> is your <strong>ML Workspace Id</strong>
+</li>
+<li>In the Request-Response URL, the <strong>GUID after services/</strong> is your <strong>ML Service Id</strong>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<img src="../images/web_app_ml_consumption_info.jpg" class="block"/>
+<ul>
+<li>Also, recall that you obtained the <strong>Weather API key</strong> back in the <strong>Task 3</strong> of the <strong>prerequisite steps</strong> for the lab. Insert that key into the <strong>Weather Api Key field</strong>.</li>
+</ul>
+<img src="../images/web_app_insert_weather_api_key.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>Next</strong>, and on the following screen, select <strong>Deploy</strong>.</p>
+</li>
+<li>
+<p>The page should begin deploying your application while showing you a status of what is currently happening.</p>
+</li>
+</ol>
+<p><strong>NOTE:</strong> If you run into errors during the deployment that indicate a bad request or unauthorized, verify that the user you are logged into the portal with an account that is either a Service Administrator or a Co-Administrator. You won’t have permissions to deploy the website otherwise.</p>
+<ol start="7">
+<li>
+<p>After a short time, the deployment will complete, and you will be presented with a link to your newly deployed web application. <strong>CTRL+Click</strong> to open it in a new tab.</p>
+</li>
+<li>
+<p>Try a few different combinations of origin, destination, date, and time in the application. The information you are shown is the result of both the ML API you published, as well as information retrieved from the Weather Underground API.</p>
+</li>
+<li>
+<p><strong>Congratulations!</strong> You have built and deployed an intelligent system to Azure.</p>
+</li>
+</ol>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Visualizing_in_PowerBI_Desktop.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Cleanup.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

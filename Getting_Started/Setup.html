@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Setup - Big Data and Visualization</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Marty Pittman">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Big Data and Visualization</a> / <a href="../Getting_Started/Requirements.html">Getting Started</a> / <a href="../Getting_Started/Setup.html">Setup</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Azure_Registration.html">Azure Registration</a></li><li class='Nav__item Nav__item--active'><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Build_a_ML_Model.html">Build a ML Model</a></li><li class='Nav__item '><a href="../Courseware/Setup Azure Data Factory.html">Setup Azure Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Develop_a_data_factory_pipeline_for_data_movement.html">Develop a data factory pipeline for data movement</a></li><li class='Nav__item '><a href="../Courseware/Operationalize_ML_Scoring_with_Azure_ML_and_Data_Factory.html">Operationalize ML Scoring with Azure ML and Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Summarize_data_using_HDInsight_Spark.html">Summarize data using HDInsight Spark</a></li><li class='Nav__item '><a href="../Courseware/Visualizing_in_PowerBI_Desktop.html">Visualizing in PowerBI Desktop</a></li><li class='Nav__item '><a href="../Courseware/Deploy_Intelligent_Web_App.html">Deploy Intelligent Web App</a></li><li class='Nav__item '><a href="../Courseware/Cleanup.html">Cleanup</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Big Data and Visualization.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Setup</h1>
+                    <div class="date"> Friday, August 24, 2018 11:57 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Exercise-0-Before-the-workshop"><strong>Exercise 0:</strong> Before the workshop</h2>
+<p><strong>Duration:</strong> 45 mins</p>
+<p><strong>Synopsis:</strong> In this exercise, you will set up your environment for use in the rest of the hands-on lab.</p>
+<p><em><strong>You should follow all the steps provided in this section to prepare your environment before attending the hands-on lab.</strong></em></p>
+<h3 id="page_Task-1-Deploy-HDInsight-cluster-Azure-ML-and-Storage-Accounts-to-Azure"><strong>Task 1:</strong> Deploy HDInsight cluster, Azure ML, and Storage Accounts to Azure</h3>
+<ol>
+<li>
+<p>Click the <strong>Deploy to Azure</strong> link below, and you will be taken to the Azure portal, and presented with a form for a new custom deployment (which uses an Azure Resource Management (ARM) template from a GitHub repository). You will be presented with a blade to provide some custom parameters as show in the screenshot below.</p>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FZoinerTejada%2Fmcw-big-data-and-visualization%2Fmaster%2FTemplates%2FTemplate-BigDataLab.json" class="external">Deploy to Azure</a></p>
+</li>
+<li>
+<p>In the Custom deployment blade that appears, enter the following values:</p>
+<ul>
+<li>
+<p>Subscription: Select your subscription</p>
+</li>
+<li>
+<p>Resource group: Use and existing Resource group, or create a new one by entering a unique name, such as “bigdatalab-[your intials or first name]”.</p>
+</li>
+<li>
+<p>Location: Select a location for the Resource group. Recommend using East US, East US 2, West Central US, or West US 2, as some resources, such as Data Factory, are only available in those regions.</p>
+</li>
+<li>
+<p>App name: Enter a unique name, such as your initials or first name. This value must be between 3 and 10 characters long, and should not contain any special characters. Note the name, as you will need to use it in your Lab VM deployment in Task 3 as well.</p>
+</li>
+<li>
+<p>Cluster Login User Name: Enter a name, or accept the default. Note all references to this in the lab use the default user name, demouser, so if you change it, please note it for future reference throughout the lab.</p>
+</li>
+<li>
+<p>Cluster Login Password: Enter a password, or accept the default. Note all references to this in the lab use the default password, <strong>Password.1!!</strong>, so if you change it, please note it for future reference throughout the lab.</p>
+</li>
+<li>
+<p>Check the box to agree to the terms.</p>
+</li>
+<li>
+<p>Select Purchase.</p>
+</li>
+</ul>
+<img src="../images/select_purchase_custom_deployment.jpg" class="block"/>
+</li>
+<li>
+<p>The deployment will take about 15 minutes to complete.</p>
+</li>
+<li>
+<p>Wait for the deployment to complete before attempting to deploy the Lab Virtual Machine in Task 3, as it depends on the Virtual Network created by this deployment. In the meantime, you can move on to the next task, Task 2, while this deployment is ongoing.</p>
+</li>
+</ol>
+<h3 id="page_Task-2-Register-for-a-trial-API-account-at-WeatherUnderground-com"><strong>Task 2:</strong> Register for a trial API account at WeatherUnderground.com</h3>
+<p>To retrieve the 10-day hourly weather forecast, you will use an API from WeatherUnderground.com. There is a free developer version that provides you access to the API you need for this hands-on lab.</p>
+<ol>
+<li>
+<p>Navigate to http://www.wunderground.com/weather/api/.</p>
+</li>
+<li>
+<p>Select Explore My Options.</p>
+<img src="../images/wu_explore_options.jpg" class="block"/>
+</li>
+<li>
+<p>On the Get Your API Key page, select <strong>Anvil Plan</strong>.</p>
+<img src="../images/wu_select_anvil_plan.jpg" class="block"/>
+</li>
+<li>
+<p>Scroll down until you see the area titled How much will you use our service? Ensure <strong>Developer</strong> is selected.</p>
+<img src="../images/wu_select_developer.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>Purchase Key</strong>.</p>
+<img src="../images/wu_purchase_key.jpg" class="block"/>
+</li>
+<li>
+<p>Complete the Create an Account form by providing your email address and a password, and agreeing to the terms.</p>
+</li>
+<li>
+<p>Select Sign up for free.</p>
+<img src="../images/wu_sign_up_free.jpg" class="block"/>
+</li>
+<li>
+<p>In a few moments you should receive a confirmation email at the email address you provided. Select the <strong>Validate Your Email</strong> link found within the email.</p>
+<img src="../images/wu_validate_email.jpg" class="block"/>
+</li>
+<li>
+<p>Once you have validated your email, go back to the Get Your API Key page, re-select Anvil and select Purchase Key.</p>
+</li>
+<li>
+<p>Complete the brief contact form. When answering where will the API be used, select <strong>Website</strong>. For Will the API be used for commercial use, select <strong>No</strong>. Select <strong>Purchase Key</strong>.</p>
+<img src="../images/wu_select_purchase_key.jpg" class="block"/>
+</li>
+<li>
+<p>You should be taken to a page that displays your key, similar to the following:</p>
+<img src="../images/wu_display_key.jpg" class="block"/>
+</li>
+<li>
+<p>Take note of your API Key. It is available from the text box labeled <strong>Key ID</strong>.</p>
+</li>
+<li>
+<p>To verify that your API Key is working, <strong>modify the following URL</strong> to include your API Key: <strong>http://api.wunderground.com/api/<YOURAPIKEY>/hourly10day/q/SEATAC.json</strong>.</p>
+</li>
+<li>
+<p>Open your modified link in a browser, you should get a JSON result showing the 10-day, hourly weather forecast for the Seattle-Tacoma International Airport</p>
+<img src="../images/wu_test_api_key.jpg" class="block"/>
+</li>
+</ol>
+<h3 id="page_Task-3-Deploy-Lab-Virtual-Machine-Lab-VM-to-Azure"><strong>Task 3:</strong> Deploy Lab Virtual Machine (Lab VM) to Azure</h3>
+<ol>
+<li>
+<p>Click the <strong>Deploy to Azure</strong> link below, and you will be taken to the Azure portal, and presented with a form for a new custom deployment (which uses an ARM template from a GitHub repository). You will be presented with a blade to provide some custom parameters as show in the screenshot below.</p>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FZoinerTejada%2Fmcw-big-data-and-visualization%2Fmaster%2FTemplates%2FTemplate-BigDataLabVM.json" class="external">Deploy to Azure</a></p>
+</li>
+<li>
+<p>In the Custom deployment blade that appears, enter the following values:</p>
+<ul>
+<li>
+<p>Subscription: Select your subscription</p>
+</li>
+<li>
+<p>Resource group: Choose <strong>Use Existing</strong>, and select the same resource group you used when deploying your HDInsight cluster and Azure ML workspace, above.</p>
+</li>
+<li>
+<p>Location: The location should be automatically selected to be the same as your Resource Group.</p>
+</li>
+<li>
+<p>App name: <strong>IMPORTANT:</strong> You must enter the <strong>same App name</strong> you used in the deployment above in Task 1.</p>
+</li>
+<li>
+<p>VM User Name: Enter a name, or accept the default. Note all references to this in the lab use the default user name, <strong>demouser</strong>, so if you change it, please note it for future reference throughout the lab.</p>
+</li>
+<li>
+<p>VM Password: Enter a password, or accept the default. Note all references to this in the lab use the default password, <strong>Password.1!!</strong>, so if you change it, please not it for future reference throughout the lab.</p>
+</li>
+<li>
+<p>Check the box to agree to the terms.</p>
+</li>
+<li>
+<p>Select <strong>Purchase</strong>.</p>
+</li>
+</ul>
+<img src="../images/select_purchase_custom_deployment_vm.jpg" class="block"/>
+</li>
+<li>
+<p>The deployment will take about 10 minutes to complete.</p>
+</li>
+</ol>
+<h3 id="page_Task-4-Install-Power-BI-Desktop-on-the-Lab-VM"><strong>Task 4:</strong> Install Power BI Desktop on the Lab VM</h3>
+<ol>
+<li>
+<p>Connect to the Lab VM. (If you are already connected to your Lab VM, skip to Step 7.</p>
+</li>
+<li>
+<p>From the left side menu in the Azure portal, click on <strong>Resource groups</strong>, then enter your resource group name into the filter box, and select it from the list.</p>
+<img src="../images/install_pbi_select_resource_group.jpg" class="block"/>
+</li>
+<li>
+<p>Next, select your lab virtual machine from the list.</p>
+<img src="../images/install_pbi_select_lab_vm.jpg" class="block"/>
+</li>
+<li>
+<p>On your Lab VM blade, select Connect from the top menu.</p>
+ <img src="../images/install_pbi_connect_vm.jpg" class="block"/>
+</li>
+<li>
+<p>Download and open the RDP file.</p>
+</li>
+<li>
+<p>Select <strong>Connect</strong>, and enter the following credentials (or the non-default credentials if you changed them):</p>
+</li>
+</ol>
+<ul>
+<li>User name: demouser</li>
+<li>Password: Password.1!!</li>
+</ul>
+<ol start="7">
+<li>
+<p>In a web browser on the Lab VM navigate to the Power BI Desktop download page (https://powerbi.microsoft.com/en-us/desktop/).</p>
+</li>
+<li>
+<p>Select the <strong>Download Free</strong> link in the middle of the page</p>
+<img src="../images/install_pbi_download_free.jpg" class="block"/>
+</li>
+<li>
+<p>Run the installer.</p>
+</li>
+<li>
+<p>Select Next on the welcome screen.</p>
+<img src="../images/install_pbi_welcome_screen.jpg" class="block"/>
+</li>
+<li>
+<p>Accept the license agreement, and select <strong>Next</strong>.</p>
+<img src="../images/install_pbi_accept_license.jpg" class="block"/>
+</li>
+<li>
+<p>Leave the default destination folder, and select <strong>Next</strong>.</p>
+<img src="../images/install_pbi_destination_folder.jpg" class="block"/>
+</li>
+<li>
+<p>Make sure the <strong>Create a desktop shortcut</strong> box is checked, and select <strong>Install</strong>.</p>
+<img src="../images/install_pbi_select_install.jpg" class="block"/>
+</li>
+<li>
+<p><strong>Uncheck</strong> Launch Microsoft Power BI Desktop, and select <strong>Finish</strong>.</p>
+<img src="../images/install_pbi_finish.jpg" class="block"/>
+</li>
+</ol>
+<h3 id="page_Task-5-Install-an-SSH-client"><strong>Task 5:</strong> Install an SSH client</h3>
+<p>In this task, you will download, and install the Git Bash SSH client. This will be used to interact with the HDInsight cluster.</p>
+<ol>
+<li>
+<p>On your Lab VM, open a browser, and navigate to https://git-scm.com/downloads to download Git Bash.</p>
+<img src="../images/download_git_bash.jpg" class="block"/>
+</li>
+<li>
+<p>Select the <strong>Download 2.xx.x for Windows</strong> button.</p>
+</li>
+<li>
+<p>Run the downloaded installer, selecting <strong>Next</strong> on each screen to accept the defaults.</p>
+</li>
+<li>
+<p>On the last screen, select <strong>Install</strong> to complete the installation.</p>
+<img src="../images/install_git_bash.jpg" class="block"/>
+</li>
+<li>
+<p>When the install is complete, <strong>uncheck View Release Notes</strong>, and select <strong>Finish</strong>.</p>
+<img src="../images/install_git_bash_finish.jpg" class="block"/>
+</li>
+</ol>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Getting_Started/Azure_Registration.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Build_a_ML_Model.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

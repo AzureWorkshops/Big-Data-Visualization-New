@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Visualizing in PowerBI Desktop - Big Data and Visualization</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Marty Pittman">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Big Data and Visualization</a> / <a href="../Courseware/Build_a_ML_Model.html">Courseware</a> / <a href="../Courseware/Visualizing_in_PowerBI_Desktop.html">Visualizing in PowerBI Desktop</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Azure_Registration.html">Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Build_a_ML_Model.html">Build a ML Model</a></li><li class='Nav__item '><a href="../Courseware/Setup Azure Data Factory.html">Setup Azure Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Develop_a_data_factory_pipeline_for_data_movement.html">Develop a data factory pipeline for data movement</a></li><li class='Nav__item '><a href="../Courseware/Operationalize_ML_Scoring_with_Azure_ML_and_Data_Factory.html">Operationalize ML Scoring with Azure ML and Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Summarize_data_using_HDInsight_Spark.html">Summarize data using HDInsight Spark</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/Visualizing_in_PowerBI_Desktop.html">Visualizing in PowerBI Desktop</a></li><li class='Nav__item '><a href="../Courseware/Deploy_Intelligent_Web_App.html">Deploy Intelligent Web App</a></li><li class='Nav__item '><a href="../Courseware/Cleanup.html">Cleanup</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Big Data and Visualization.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Visualizing in PowerBI Desktop</h1>
+                    <div class="date"> Friday, August 24, 2018 11:57 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Exercise-6-Visualizing-in-Power-BI-Desktop"><strong>Exercise 6:</strong> Visualizing in Power BI Desktop</h2>
+<p><strong>Duration:</strong> 20 mins</p>
+<p><strong>Synopsis:</strong> In this exercise, you will create a Power BI Report to visualize the data in HDInsight Spark.</p>
+<h3 id="page_Task-1-Connect-to-the-Lab-VM"><strong>Task 1:</strong> Connect to the Lab VM</h3>
+<ol>
+<li>
+<p>NOTE: If you are already, connected to your Lab VM, skip to Task 2.</p>
+</li>
+<li>
+<p>From the left side menu in the Azure portal, click on <strong>Resource groups</strong>, then enter your resource group name into the filter box, and select it from the list.</p>
+<img src="../images/pbi_connect_to_lab_vm.jpg" class="block"/>
+</li>
+<li>
+<p>Next, select your lab virtual machine from the list.</p>
+<img src="../images/pbi_select_lab_vm.jpg" class="block"/>
+</li>
+<li>
+<p>On your Lab VM blade, select <strong>Connect</strong> from the top menu.</p>
+<img src="../images/pbi_select_connect_lab_vm.jpg" class="block"/>
+</li>
+<li>
+<p><strong>Download</strong> and <strong>open</strong> the RDP file.</p>
+</li>
+<li>
+<p>Select <strong>Connect</strong>, and enter the following credentials:</p>
+<ul>
+<li>User name: demouser</li>
+<li>Password: Password.1!!</li>
+</ul>
+</li>
+</ol>
+<h3 id="page_Task-2-Connect-to-HDInsight-Spark-using-Power-BI-Desktop"><strong>Task 2:</strong> Connect to HDInsight Spark using Power BI Desktop</h3>
+<ol>
+<li>
+<p>On your Lab VM, launch Power BI Desktop by <strong>double-clicking on the desktop shortcut</strong> you created in the pre-lab setup.</p>
+</li>
+<li>
+<p>When Power BI Desktop opens, you will need to <strong>enter your personal information</strong>, or <strong>Sign in</strong> if you already have an account.</p>
+<img src="../images/pbi_desktop_welcome.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>Get data</strong> on the screen that is displayed next.</p>
+<img src="../images/pbi_select_get_data.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>Azure</strong> from the left, and select <strong>Azure HDInsight Spark (Beta)</strong> from the list of available data sources.</p>
+<img src="../images/pbi_select_hdinsight_source.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>Connect</strong>.</p>
+</li>
+<li>
+<p>You will receive a prompt warning you that the Spark connector is still in preview. Select <strong>Continue</strong>.</p>
+<img src="../images/pbi_preview_connector_continue.jpg" class="block"/>
+</li>
+<li>
+<p>On the next screen, you will be prompted for your HDInsight Spark cluster URL.</p>
+<img src="../images/pbi_spark_cluster_url.jpg" class="block"/>
+</li>
+<li>
+<p>To find your Spark cluster URL, go into the <strong>Azure portal</strong>, and navigate to your <strong>Spark cluster</strong>, as you did in <strong>Exercise 5, Task 1</strong>. Once on the cluster blade, look for the URL under the <strong>Essentials</strong> section</p>
+<img src="../images/pbi_copy_spark_cluster_url.jpg" class="block"/>
+</li>
+<li>
+<p>Copy the URL, and <strong>paste it into the Server box</strong> on the Power BI Azure HDInsight Spark dialog.</p>
+<img src="../images/pbi_paste_spark_url.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>DirectQuery</strong> for the Data Connectivity mode, and select <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Enter your credentials on the next screen as follows.</p>
+<ul>
+<li>User name: demouser</li>
+<li>Password: Password.1!!</li>
+</ul>
+<img src="../images/pbi_enter_spark_credentials.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>Connect</strong>.</p>
+</li>
+<li>
+<p>In the Navigator dialog, <strong>check the box</strong> next to <strong>flightdelayssummary</strong>, and select <strong>Load</strong>.</p>
+<img src="../images/pbi_load_flightdelaysummary.jpg" class="block"/>
+</li>
+<li>
+<p>It will take several minutes for the data to load into the Power BI Desktop client.</p>
+</li>
+</ol>
+<h3 id="page_Task-3-Create-Power-BI-report"><strong>Task 3:</strong> Create Power BI report</h3>
+<ol>
+<li>
+<p>Once the data finishes loading, you will see the fields appear on the far right of the Power BI Desktop client window.</p>
+<img src="../images/pbi_view_fields.jpg" class="block"/>
+</li>
+<li>
+<p>From the Visualizations area, next to Fields, select the Globe icon to add a Map visualization to the report design surface.</p>
+<img src="../images/pbi_select_map_vis.jpg" class="block"/>
+</li>
+<li>
+<p>With the Map visualization still selected, drag the <strong>OriginLatLong</strong> field to the <strong>Location</strong> field under Visualizations.</p>
+<img src="../images/pbi_drag_lat_long.jpg" class="block"/>
+</li>
+<li>
+<p>Next, drag the <strong>NumDelays</strong> field to the <strong>Size</strong> field under Visualizations.</p>
+<img src="../images/pbi_drag_lat_long.jpg" class="block"/>
+</li>
+<li>
+<p>You should now see a map that looks similar to the following (resize and zoom on your map if necessary):</p>
+ <img src="../images/pbi_view_map.jpg" class="block"/>
+</li>
+<li>
+<p><strong>Unselect</strong> the Map visualization by clicking on the white space next to the map in the report area.</p>
+</li>
+<li>
+<p>From the Visualizations area, select the <strong>Stacked Column Chart</strong> icon to add a bar chart visual to the report’s design surface.</p>
+<img src="../images/pbi_select_stacked_column_chart.jpg" class="block"/>
+</li>
+<li>
+<p>With the Stacked Column Chart still selected, drag the <strong>Day</strong> field and drop it into the <strong>Axis</strong> field located under Visualizations.</p>
+</li>
+<li>
+<p>Next, drag the <strong>AvgDelayProbability</strong> field over, and drop it into the <strong>Value</strong> field.</p>
+</li>
+</ol>
+   <img src="../images/pbi_drag_avgdelayprobability.jpg" class="block"/>
+<ol start="10">
+<li>
+<p>Grab the corner of the new Stacked Column Chart visual on the report design surface, and drag it out to make it as wide as the bottom of your report design surface. It should look something like the following.</p>
+<img src="../images/pbi_expand_stacked_column.jpg" class="block"/>
+</li>
+<li>
+<p><strong>Unselect</strong> the <strong>Stacked Column Chart</strong> visual by clicking on the white space next to the map on the design surface.</p>
+</li>
+<li>
+<p>From the Visualizations area, select the <strong>Treemap</strong> icon to add this visualization to the report.</p>
+<img src="../images/pbi_select_treemap.jpg" class="block"/>
+</li>
+<li>
+<p>With the Treemap visualization selected, drag the <strong>OriginAirportCode</strong> field into the <strong>Group</strong> field under Visualizations.</p>
+</li>
+<li>
+<p>Next, drag the <strong>NumDelays</strong> field over, and drop it into the <strong>Values</strong> field.</p>
+<img src="../images/pbi_drag_numdelays.jpg" class="block"/>
+</li>
+<li>
+<p>Grab the corner of the Treemap visual on the report design surface, and expand it to fill the area between the map and the right edge of the design surface. The report should now look similar to the following.</p>
+<img src="../images/pbi_report_with_treemap.jpg" class="block"/>
+</li>
+<li>
+<p>You can cross filter any of the visualizations on the report by clicking on one of the other visuals within the report, as shown below. (This may take a few seconds to change, as the data is loaded.)</p>
+<img src="../images/pbi_report_cross_filter.jpg" class="block"/>
+</li>
+<li>
+<p>You can save the report, by clicking <strong>Save</strong> from the <strong>File</strong> menu, and entering a name and location for the file.</p>
+<img src="../images/pbi_save_report.jpg" class="block"/>
+</li>
+</ol>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Summarize_data_using_HDInsight_Spark.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Deploy_Intelligent_Web_App.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

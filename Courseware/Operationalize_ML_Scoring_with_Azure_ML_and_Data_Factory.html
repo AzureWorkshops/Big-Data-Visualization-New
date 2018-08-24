@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Operationalize ML Scoring with Azure ML and Data Factory - Big Data and Visualization</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Marty Pittman">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Big Data and Visualization</a> / <a href="../Courseware/Build_a_ML_Model.html">Courseware</a> / <a href="../Courseware/Operationalize_ML_Scoring_with_Azure_ML_and_Data_Factory.html">Operationalize ML Scoring with Azure ML and Data Factory</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Azure_Registration.html">Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Build_a_ML_Model.html">Build a ML Model</a></li><li class='Nav__item '><a href="../Courseware/Setup Azure Data Factory.html">Setup Azure Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Develop_a_data_factory_pipeline_for_data_movement.html">Develop a data factory pipeline for data movement</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/Operationalize_ML_Scoring_with_Azure_ML_and_Data_Factory.html">Operationalize ML Scoring with Azure ML and Data Factory</a></li><li class='Nav__item '><a href="../Courseware/Summarize_data_using_HDInsight_Spark.html">Summarize data using HDInsight Spark</a></li><li class='Nav__item '><a href="../Courseware/Visualizing_in_PowerBI_Desktop.html">Visualizing in PowerBI Desktop</a></li><li class='Nav__item '><a href="../Courseware/Deploy_Intelligent_Web_App.html">Deploy Intelligent Web App</a></li><li class='Nav__item '><a href="../Courseware/Cleanup.html">Cleanup</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Big Data and Visualization.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Operationalize ML Scoring with Azure ML and Data Factory</h1>
+                    <div class="date"> Friday, August 24, 2018 11:57 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Exercise-4-Operationalize-ML-scoring-with-Azure-ML-and-Data-Factory"><strong>Exercise 4:</strong> Operationalize ML scoring with Azure ML and Data Factory</h2>
+<p><strong>Duration:</strong> 20 mins</p>
+<p><strong>Synopsis:</strong> In this exercise, you will extend the Data Factory to operationalize the scoring of data using the previously created Azure Machine Learning (ML) model.</p>
+<h3 id="page_Task-1-Create-Azure-ML-Linked-Service"><strong>Task 1:</strong> Create Azure ML Linked Service</h3>
+<ol>
+<li>
+<p>Return to the Azure Data Factory blade in the Azure portal</p>
+</li>
+<li>
+<p>Select <strong>Author and Deploy</strong> below Actions.</p>
+<img src="../images/adf_launch_author_deploy.jpg" class="block"/>
+</li>
+<li>
+<p>On the Author and Deploy blade, select <strong>…More</strong>, the select <strong>New Compute</strong>.</p>
+<img src="../images/adf_author_new_compute.jpg" class="block"/>
+</li>
+<li>
+<p>Select Azure ML from the New Compute list.</p>
+<img src="../images/adf_author_azure_ml.jpg" class="block"/>
+</li>
+<li>
+<p>In the new window, replace the contents of the file with the following JSON.</p>
+<ul>
+<li>Back in Exercise 1, Task 9, you left your ML Web Service’s Consume page open. Return to that page, and copy and paste the following values into the JSON below.</li>
+<li>The value of <strong>mlEndpoint</strong> below is your web service’s <strong>Batch Request URL</strong>, remember to **remove the query string (e.g., “?api_version=2.0”).</li>
+<li>
+<strong>apiKey</strong> is the Primary Key of your web service.</li>
+<li>Your tenant string should be populated automatically.</li>
+<li>Delete the other optional settings (updateResourceEndpoint, servicePrincipalId, servicePrincipalKey).</li>
+</ul>
+<pre><code class="language-json">{
+&quot;name&quot;: &quot;AzureMLLinkedService&quot;,
+&quot;properties&quot;: {
+    &quot;type&quot;: &quot;AzureML&quot;,
+    &quot;description&quot;: &quot;&quot;,
+    &quot;typeProperties&quot;: {
+        &quot;mlEndpoint&quot;: &quot;&lt;Specify the batch scoring URL&gt;&quot;,
+        &quot;apiKey&quot;: &quot;&lt;Specify the published workspace model’s API key&gt;&quot;,
+        &quot;tenant&quot;: &quot;&lt;Specify your tenant string&gt;&quot;
+                        }
+                }
+}
+</code></pre>
+</li>
+</ol>
+<pre><code></code></pre>
+<ol start="6">
+<li>
+<p>Select <strong>Deploy</strong>.</p>
+<img src="../images/adf_azure_ml_deploy.jpg" class="block"/>
+</li>
+</ol>
+<h3 id="page_Task-2-Create-Azure-ML-input-dataset"><strong>Task 2:</strong> Create Azure ML input dataset</h3>
+<ol>
+<li>
+<p>Still on the Author and Deploy blade, select <strong>…More</strong> again.</p>
+</li>
+<li>
+<p>To create a new dataset that will be copied into Azure Blob storage, select <strong>New dataset</strong> from the top.</p>
+<img src="../images/adf_azure_ml_new_dataset.jpg" class="block"/>
+</li>
+<li>
+<p>Select <strong>Azure Blob storage</strong> from the list of available datasets.</p>
+<img src="../images/adf_azure_ml_select_blob_storage.jpg" class="block"/>
+</li>
+<li>
+<p>Replace the JSON text in the draft window with following JSON.</p>
+</li>
+</ol>
+<pre><code class="language-JSON">{
+    &quot;name&quot;: &quot;PartitionedBlobInput&quot;,
+    &quot;properties&quot;: {
+        &quot;published&quot;: false,
+        &quot;type&quot;: &quot;AzureBlob&quot;,
+        &quot;linkedServiceName&quot;: &quot;BlobStorageOutput&quot;,
+        &quot;typeProperties&quot;: {
+            &quot;fileName&quot;: &quot;FlightsAndWeather.csv&quot;,
+            &quot;folderPath&quot;: &quot;sparkcontainer/FlightsAndWeather/{Year}/{Month}/&quot;,
+            &quot;format&quot;: {
+                &quot;type&quot;: &quot;TextFormat&quot;
+            },
+            &quot;partitionedBy&quot;: [
+                {
+                    &quot;name&quot;: &quot;Year&quot;,
+                    &quot;value&quot;: {
+                        &quot;type&quot;: &quot;DateTime&quot;,
+                        &quot;date&quot;: &quot;SliceStart&quot;,
+                        &quot;format&quot;: &quot;yyyy&quot;
+                    }
+                },
+                {
+                    &quot;name&quot;: &quot;Month&quot;,
+                    &quot;value&quot;: {
+                        &quot;type&quot;: &quot;DateTime&quot;,
+                        &quot;date&quot;: &quot;SliceStart&quot;,
+                        &quot;format&quot;: &quot;MM&quot;
+                    }
+                }
+            ]
+        },
+        &quot;availability&quot;: {
+            &quot;frequency&quot;: &quot;Month&quot;,
+            &quot;interval&quot;: 1
+        },
+        &quot;external&quot;: true,
+        &quot;policy&quot;: {}
+    }
+}
+
+</code></pre>
+<ol start="5">
+<li>
+<p>Select <strong>Deploy</strong>.</p>
+<img src="../images/adf_azure_blob_select_deploy.jpg" class="block"/>
+</li>
+</ol>
+<h3 id="page_Task-3-Create-Azure-ML-scored-dataset"><strong>Task 3:</strong> Create Azure ML scored dataset</h3>
+<ol>
+<li>
+<p>Select <strong>…More</strong> again, and select <strong>New dataset</strong>.</p>
+<img src="../images/adf_azure_ml_scored_dataset_new_dataset.jpg" class="block"/>
+</li>
+<li>
+<p>Select Azure Blob storage from the list of available datasets.</p>
+<img src="../images/adf_azure_ml_scored_dataset_blob_store.jpg" class="block"/>
+</li>
+<li>
+<p>Replace the JSON text in the draft window with following JSON.</p>
+</li>
+</ol>
+<pre><code class="language-JSON">{
+    &quot;name&quot;: &quot;ScoredBlobOutput&quot;,
+    &quot;properties&quot;: {
+        &quot;published&quot;: false,
+        &quot;type&quot;: &quot;AzureBlob&quot;,
+        &quot;linkedServiceName&quot;: &quot;BlobStorageOutput&quot;,
+        &quot;typeProperties&quot;: {
+            &quot;fileName&quot;: &quot;Scored_FlightsAndWeather{Year}{Month}.csv&quot;,
+            &quot;folderPath&quot;: &quot;sparkcontainer/ScoredFlightsAndWeather&quot;,
+            &quot;format&quot;: {
+                &quot;type&quot;: &quot;TextFormat&quot;
+            },
+            &quot;partitionedBy&quot;: [
+                {
+                    &quot;name&quot;: &quot;Year&quot;,
+                    &quot;value&quot;: {
+                        &quot;type&quot;: &quot;DateTime&quot;,
+                        &quot;date&quot;: &quot;SliceStart&quot;,
+                        &quot;format&quot;: &quot;yyyy&quot;
+                    }
+                },
+                {
+                    &quot;name&quot;: &quot;Month&quot;,
+                    &quot;value&quot;: {
+                        &quot;type&quot;: &quot;DateTime&quot;,
+                        &quot;date&quot;: &quot;SliceStart&quot;,
+                        &quot;format&quot;: &quot;MM&quot;
+                    }
+                }
+            ]
+        },
+        &quot;availability&quot;: {
+            &quot;frequency&quot;: &quot;Month&quot;,
+            &quot;interval&quot;: 1
+        }
+    }
+}
+</code></pre>
+<ol start="4">
+<li>
+<p>Select <strong>Deploy</strong>.</p>
+<img src="../images/adf_deploy_scored_blob_output.jpg" class="block"/>
+</li>
+</ol>
+<h3 id="page_Task-4-Create-Azure-ML-predictive-pipeline"><strong>Task 4:</strong> Create Azure ML predictive pipeline</h3>
+<ol>
+<li>
+<p>Select <strong>…More</strong> again, and select <strong>New pipeline</strong>.</p>
+<img src="../images/adf_azure_ml_new_predictive_pipeline.jpg" class="block"/>
+</li>
+<li>
+<p>Replace the JSON text in the draft window with following JSON.</p>
+</li>
+</ol>
+<pre><code class="language-JSON">{
+    &quot;name&quot;: &quot;MLPredictivePipeline&quot;,
+    &quot;properties&quot;: {
+        &quot;description&quot;: &quot;Use AzureML model&quot;,
+        &quot;activities&quot;: [
+            {
+                &quot;type&quot;: &quot;AzureMLBatchExecution&quot;,
+                &quot;typeProperties&quot;: {
+                    &quot;webServiceInput&quot;: &quot;PartitionedBlobInput&quot;,
+                    &quot;webServiceOutputs&quot;: {
+                        &quot;output1&quot;: &quot;ScoredBlobOutput&quot;
+                    },
+                    &quot;webServiceInputs&quot;: {},
+                    &quot;globalParameters&quot;: {}
+                },
+                &quot;inputs&quot;: [
+                    {
+                        &quot;name&quot;: &quot;PartitionedBlobInput&quot;
+                    }
+                ],
+                &quot;outputs&quot;: [
+                    {
+                        &quot;name&quot;: &quot;ScoredBlobOutPut&quot;
+                    }
+                ],
+                &quot;policy&quot;: {
+                    &quot;timeout&quot;: &quot;02:00:00&quot;,
+                    &quot;concurrency&quot;: 10,
+                    &quot;retry&quot;: 1
+                },
+                &quot;scheduler&quot;: {
+                    &quot;frequency&quot;: &quot;Month&quot;,
+                    &quot;interval&quot;: 1
+                },
+                &quot;name&quot;: &quot;MLActivity&quot;,
+                &quot;description&quot;: &quot;prediction analysis on batch input&quot;,
+                &quot;linkedServiceName&quot;: &quot;AzureMLLinkedService&quot;
+            }
+        ],
+        &quot;start&quot;: &quot;2017-03-01T00:00:00Z&quot;,
+        &quot;end&quot;: &quot;2099-12-31T11:59:59Z&quot;,
+        &quot;isPaused&quot;: false,
+        &quot;pipelineMode&quot;: &quot;Scheduled&quot;
+    }
+}
+</code></pre>
+<ol start="3">
+<li>
+<p>Select <strong>Deploy</strong>.</p>
+<img src="../images/adf_deploy_scored_blob_output.jpg" class="block"/>
+</li>
+</ol>
+<h3 id="page_Task-5-Monitor-pipeline-activities"><strong>Task 5:</strong> Monitor pipeline activities</h3>
+<ol>
+<li>
+<p><strong>Close the Author and Deploy blade</strong>, and return to the Data Factory overview.</p>
+</li>
+<li>
+<p>Select <strong>Monitor &amp; Manage</strong> under <strong>Actions</strong>.</p>
+<img src="../images/adf_monitor_and_manage.jpg" class="block"/>
+</li>
+<li>
+<p>Once again, you may need to shift the start time in order to see the items in progress and ready states.</p>
+<img src="../images/adf_monitor_start_time.jpg" class="block"/>
+</li>
+<li>
+<p>Close the Monitor &amp; Manage browser tab.</p>
+</li>
+</ol>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Develop_a_data_factory_pipeline_for_data_movement.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Summarize_data_using_HDInsight_Spark.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>
